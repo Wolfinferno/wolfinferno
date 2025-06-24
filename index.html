@@ -18,7 +18,6 @@
       min-height: 100vh;
     }
 
-    /* Background Image */
     .background {
       position: fixed;
       top: 0;
@@ -29,7 +28,6 @@
       z-index: 0;
     }
 
-    /* Circuit Pulse Overlay */
     .circuit-overlay {
       position: fixed;
       top: 0;
@@ -59,15 +57,48 @@
       }
     }
 
+    nav {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .nav-tabs {
+      list-style: none;
+      display: inline-flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-tabs li a {
+      color: #0ff;
+      padding: 10px 20px;
+      border: 2px solid #0ff;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 0 10px #0ff;
+      transition: all 0.3s ease;
+    }
+
+    .nav-tabs li a:hover {
+      background: #0ff;
+      color: #121212;
+      box-shadow: 0 0 20px #f00;
+    }
+
     header {
       position: relative;
       z-index: 10;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 20px 40px;
-      background: linear-gradient(45deg, red, black, red);
-      box-shadow: 0 0 20px red;
+      padding: 15px 40px;
+      background: rgba(0, 0, 0, 0.7);
+      border-bottom: 2px solid #0ff;
+      box-shadow: 0 0 20px #0ff;
+      border-radius: 0 0 15px 15px;
     }
 
     #logo {
@@ -93,22 +124,29 @@
     }
 
     section {
+      background-color: rgba(18, 18, 18, 0.85);
+      border: 2px solid #0ff;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #0ff;
+      padding: 25px;
+      margin: 30px auto;
+      max-width: 900px;
+      transition: transform 0.3s, box-shadow 0.3s;
       position: relative;
       z-index: 10;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 800px;
-      border: 1px solid red;
-      border-radius: 10px;
-      background-color: #1e1e1e;
-      text-align: center;
-      box-shadow: 0 0 15px red;
-      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     section:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 25px lime;
+      transform: scale(1.03);
+      box-shadow: 0 0 35px #f00;
+    }
+
+    h2 {
+      color: #0ff;
+      border-bottom: 2px solid #f00;
+      display: inline-block;
+      padding-bottom: 5px;
+      box-shadow: 0 0 10px #0ff;
     }
 
     a {
@@ -125,40 +163,49 @@
     }
 
     .download-button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 25px;
-      background-color: #0ff;
+      background: linear-gradient(45deg, #0ff, #00f);
       color: #121212;
-      border-radius: 8px;
+      border: none;
+      padding: 15px 30px;
       font-weight: bold;
-      box-shadow: 0 0 15px #0ff;
-      transition: background 0.3s ease, box-shadow 0.3s;
-      position: relative;
-      z-index: 10;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #0ff;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
     }
 
     .download-button:hover {
-      background-color: lime;
-      box-shadow: 0 0 25px lime;
+      background: linear-gradient(45deg, #f00, #900);
+      color: #fff;
+      box-shadow: 0 0 30px #f00;
     }
 
     footer {
-      position: relative;
-      z-index: 10;
+      background: rgba(0, 0, 0, 0.8);
+      border-top: 2px solid #f00;
+      color: #888;
+      box-shadow: 0 -2px 15px #f00;
+      border-radius: 15px 15px 0 0;
+      text-align: center;
       padding: 10px;
       font-size: 0.8em;
-      color: #888;
-      text-align: center;
-      background: #0f0f0f;
-      box-shadow: 0 -2px 10px red;
+      position: relative;
+      z-index: 10;
     }
   </style>
 </head>
 <body>
-  <!-- Background Image and Circuit Overlay -->
   <div class="background"></div>
   <div class="circuit-overlay"></div>
+
+  <nav>
+    <ul class="nav-tabs">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
   <header>
     <img src="/logo.png" alt="Wolf Inferno Logo" id="logo" />
@@ -179,15 +226,8 @@
   <section id="tools">
     <h2>Available Tools</h2>
     <p>Download the latest Mini AV executable below:</p>
-    <a
-      class="download-button"
-      href="https://github.com/Wolfinferno/wolfinferno/raw/main/Mini_Av_Full.exe"
-      download
-      >Download Mini AV (Beta)</a
-    >
-    <p style="margin-top: 10px; font-size: 0.9em; color: #ccc;">
-      Note: If your browser warns about the file, please allow it as this is a trusted file built by Wolf Inferno.
-    </p>
+    <a class="download-button" href="https://github.com/Wolfinferno/wolfinferno/raw/main/Mini_Av_Full.exe" download>Download Mini AV (Beta)</a>
+    <p style="margin-top: 10px; font-size: 0.9em; color: #ccc;">Note: If your browser warns about the file, please allow it as this is a trusted file built by Wolf Inferno.</p>
   </section>
 
   <section id="about">
