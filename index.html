@@ -18,16 +18,45 @@
       min-height: 100vh;
     }
 
-    /* Matrix canvas */
-    #particle-canvas {
+    /* Background Image */
+    .background {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      pointer-events: none;
+      background: url('background.jpeg') no-repeat center center/cover;
       z-index: 0;
-      background: transparent;
+    }
+
+    /* Circuit Pulse Overlay */
+    .circuit-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(0, 255, 255, 0.1),
+        rgba(0, 255, 255, 0.1) 2px,
+        transparent 2px,
+        transparent 6px
+      );
+      animation: pulse 3s infinite alternate;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0.2;
+        filter: drop-shadow(0 0 5px cyan);
+      }
+      100% {
+        opacity: 0.5;
+        filter: drop-shadow(0 0 15px cyan);
+      }
     }
 
     header {
@@ -44,7 +73,6 @@
     #logo {
       width: 100px;
       border-radius: 12px;
-      /* Removed animation and transform */
     }
 
     header h1 {
@@ -54,7 +82,6 @@
       font-size: 28px;
       color: #0ff;
       text-shadow: 0 0 10px #0ff;
-      /* Removed glitch animation */
     }
 
     header p {
@@ -94,10 +121,7 @@
 
     a:hover {
       color: lime;
-      text-shadow:
-        0 0 5px lime,
-        0 0 10px lime,
-        0 0 20px lime;
+      text-shadow: 0 0 5px lime, 0 0 10px lime, 0 0 20px lime;
     }
 
     .download-button {
@@ -132,8 +156,9 @@
   </style>
 </head>
 <body>
-  <!-- Matrix background canvas -->
-  <canvas id="particle-canvas"></canvas>
+  <!-- Background Image and Circuit Overlay -->
+  <div class="background"></div>
+  <div class="circuit-overlay"></div>
 
   <header>
     <img src="/logo.png" alt="Wolf Inferno Logo" id="logo" />
@@ -161,8 +186,7 @@
       >Download Mini AV (Beta)</a
     >
     <p style="margin-top: 10px; font-size: 0.9em; color: #ccc;">
-      Note: If your browser warns about the file, please allow it as this is a
-      trusted file built by Wolf Inferno.
+      Note: If your browser warns about the file, please allow it as this is a trusted file built by Wolf Inferno.
     </p>
   </section>
 
@@ -171,78 +195,21 @@
     <p>
       Wolf Inferno is a dedicated initiative focused on creating lightweight,
       transparent, and effective cybersecurity tools. Founded by
-      <a href="https://www.linkedin.com/in/ahujakunal" target="_blank"
-        >Kunal Ahuja</a
-      >, the project emphasizes open-source principles, allowing anyone to
-      inspect, improve, and trust the tools we develop. Our mission is to make
-      robust digital protection accessible to individuals and small
-      organizations worldwide.
+      <a href="https://www.linkedin.com/in/ahujakunal" target="_blank">Kunal Ahuja</a>,
+      the project emphasizes open-source principles, allowing anyone to inspect,
+      improve, and trust the tools we develop. Our mission is to make robust digital protection accessible to individuals and small organizations worldwide.
     </p>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
     <p>
-      Email:
-      <a href="mailto:ahuja.kunal@outlook.com">ahuja.kunal@outlook.com</a>
+      Email: <a href="mailto:ahuja.kunal@outlook.com">ahuja.kunal@outlook.com</a>
     </p>
   </section>
 
   <footer>
     <p>&copy; 2025 Wolf Inferno. All Rights Reserved.</p>
   </footer>
-
-  <script>
-    // Matrix rain effect
-    const canvas = document.getElementById('particle-canvas');
-    const ctx = canvas.getContext('2d');
-
-    let width, height;
-    let columns;
-    let drops = [];
-    const fontSize = 16;
-    const letters = 'abcdefghijklmnopqrstuvwxyz0123456789@#$%^&*+-'.split('');
-
-    function init() {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
-
-      columns = Math.floor(width / fontSize);
-      drops = new Array(columns).fill(1);
-    }
-
-    function draw() {
-      // Translucent background to create fade effect
-      ctx.fillStyle = 'rgba(18,18,18, 0.1)';
-      ctx.fillRect(0, 0, width, height);
-
-      ctx.fillStyle = '#0f0'; // Neon green
-      ctx.font = fontSize + 'px monospace';
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    }
-
-    function loop() {
-      draw();
-      requestAnimationFrame(loop);
-    }
-
-    window.addEventListener('resize', () => {
-      init();
-    });
-
-    init();
-    loop();
-  </script>
 </body>
 </html>
