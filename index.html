@@ -7,7 +7,6 @@
   <link rel="icon" href="assets/images/logo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
   <style>
-    /* Basic styling */
     body {
       background-color: #121212;
       color: #f5f5f5;
@@ -19,7 +18,7 @@
       min-height: 100vh;
     }
 
-    /* Particle background canvas */
+    /* Matrix canvas */
     #particle-canvas {
       position: fixed;
       top: 0;
@@ -45,40 +44,7 @@
     #logo {
       width: 100px;
       border-radius: 12px;
-      transform: translateY(-50px) scale(0.5);
-      opacity: 0;
-      animation: logoDropIn 1s ease forwards;
-      animation-delay: 0.3s;
-    }
-
-    @keyframes logoDropIn {
-      to {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-        filter: drop-shadow(0 0 8px #ff0000);
-      }
-    }
-
-    /* Glitch animation for header */
-    @keyframes glitch {
-      0% {
-        text-shadow: 2px 0 red, -2px 0 cyan;
-      }
-      20% {
-        text-shadow: -2px 0 red, 2px 0 cyan;
-      }
-      40% {
-        text-shadow: 2px 0 cyan, -2px 0 red;
-      }
-      60% {
-        text-shadow: -2px 0 cyan, 2px 0 red;
-      }
-      80% {
-        text-shadow: 2px 0 red, -2px 0 cyan;
-      }
-      100% {
-        text-shadow: -2px 0 red, 2px 0 cyan;
-      }
+      /* Removed animation and transform */
     }
 
     header h1 {
@@ -88,7 +54,7 @@
       font-size: 28px;
       color: #0ff;
       text-shadow: 0 0 10px #0ff;
-      animation: glitch 1.5s infinite;
+      /* Removed glitch animation */
     }
 
     header p {
@@ -144,7 +110,6 @@
       font-weight: bold;
       box-shadow: 0 0 15px #0ff;
       transition: background 0.3s ease, box-shadow 0.3s;
-      animation: neonGlow 2.5s ease-in-out infinite;
       position: relative;
       z-index: 10;
     }
@@ -152,24 +117,6 @@
     .download-button:hover {
       background-color: lime;
       box-shadow: 0 0 25px lime;
-    }
-
-    @keyframes neonGlow {
-      0%,
-      100% {
-        text-shadow:
-          0 0 5px #0ff,
-          0 0 10px #0ff,
-          0 0 20px #0ff,
-          0 0 40px #00fff7;
-      }
-      50% {
-        text-shadow:
-          0 0 8px #0ff,
-          0 0 16px #0ff,
-          0 0 30px #0ff,
-          0 0 50px #00fff7;
-      }
     }
 
     footer {
@@ -185,7 +132,7 @@
   </style>
 </head>
 <body>
-  <!-- Particle background canvas -->
+  <!-- Matrix background canvas -->
   <canvas id="particle-canvas"></canvas>
 
   <header>
@@ -246,10 +193,15 @@
   </footer>
 
   <script>
-    // Particle animation
+    // Matrix rain effect
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
-    let width, height, particles;
+
+    let width, height;
+    let columns;
+    let drops = [];
+    const fontSize = 16;
+    const letters = 'abcdefghijklmnopqrstuvwxyz0123456789@#$%^&*+-'.split('');
 
     function init() {
       width = window.innerWidth;
@@ -257,31 +209,32 @@
       canvas.width = width;
       canvas.height = height;
 
-      particles = [];
-      for (let i = 0; i < 80; i++) {
-        particles.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          radius: Math.random() * 2 + 1,
-          speedY: Math.random() * 0.5 + 0.2,
-          opacity: Math.random() * 0.5 + 0.3,
-        });
+      columns = Math.floor(width / fontSize);
+      drops = new Array(columns).fill(1);
+    }
+
+    function draw() {
+      // Translucent background to create fade effect
+      ctx.fillStyle = 'rgba(18,18,18, 0.1)';
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.fillStyle = '#0f0'; // Neon green
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
       }
     }
 
-    function animate() {
-      ctx.clearRect(0, 0, width, height);
-      particles.forEach(p => {
-        p.y -= p.speedY;
-        if (p.y < 0) p.y = height;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0,255,0,${p.opacity})`; // neon green dots
-        ctx.shadowColor = 'rgba(0,255,0,0.7)';
-        ctx.shadowBlur = 6;
-        ctx.fill();
-      });
-      requestAnimationFrame(animate);
+    function loop() {
+      draw();
+      requestAnimationFrame(loop);
     }
 
     window.addEventListener('resize', () => {
@@ -289,7 +242,7 @@
     });
 
     init();
-    animate();
+    loop();
   </script>
 </body>
 </html>
