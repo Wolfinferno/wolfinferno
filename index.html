@@ -16,6 +16,9 @@
       overflow-x: hidden;
       position: relative;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .background {
@@ -61,7 +64,7 @@
       position: relative;
       z-index: 10;
       text-align: center;
-      margin: 5px 0 15px 0;
+      margin: 10px 0 20px 0;
     }
 
     .nav-tabs {
@@ -106,6 +109,7 @@
       border-bottom: 2px solid #0ff;
       box-shadow: 0 0 20px #0ff;
       border-radius: 0 0 15px 15px;
+      margin-bottom: 60px; /* Added margin bottom for spacing below header */
     }
 
     #logo {
@@ -130,7 +134,7 @@
       text-shadow: 0 0 8px lime;
     }
 
-    /* Container for tab content panels */
+    /* Container for tab content panels placed near bottom */
     .tab-content-wrapper {
       position: relative;
       max-width: 700px;
@@ -142,6 +146,10 @@
       border: 2px solid #0ff;
       min-height: 220px;
       z-index: 10;
+
+      /* Push the container near the bottom of viewport */
+      margin-top: auto;
+      margin-bottom: 60px;
     }
 
     /* Flex container to hold all tab panels horizontally */
@@ -253,8 +261,8 @@
     <ul class="nav-tabs">
       <li><a href="#features" class="active" data-index="0">Features</a></li>
       <li><a href="#tools" data-index="1">Tools</a></li>
-      <li><a href="#about" data-index="2">About</a></li>
-      <li><a href="#contact" data-index="3">Contact</a></li>
+      <li><a href="#about" data-index="2">About Us</a></li>
+      <li><a href="#contact" data-index="3">Contact Us</a></li>
     </ul>
   </nav>
 
@@ -277,7 +285,7 @@
       </div>
 
       <div class="tab-panel" id="tools">
-        <h2>Available Tools</h2>
+        <h2>Tools</h2>
         <p>Download the latest Mini AV executable below:</p>
         <a
           class="download-button"
