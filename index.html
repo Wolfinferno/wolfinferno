@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wolf Inferno - Cyber Defense Tools</title>
-  <link rel="icon" href="assets/images/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/images/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
   <style>
     body {
       background-color: #121212;
@@ -26,6 +26,23 @@
       width: 100px;
       border-radius: 12px;
     }
+    @keyframes neonGlow {
+      0%,
+      100% {
+        text-shadow:
+          0 0 5px #0ff,
+          0 0 10px #0ff,
+          0 0 20px #0ff,
+          0 0 40px #00fff7;
+      }
+      50% {
+        text-shadow:
+          0 0 8px #0ff,
+          0 0 16px #0ff,
+          0 0 30px #0ff,
+          0 0 50px #00fff7;
+      }
+    }
     header h1 {
       flex: 1;
       text-align: left;
@@ -33,6 +50,7 @@
       font-size: 28px;
       color: #0ff;
       text-shadow: 0 0 10px #0ff;
+      animation: neonGlow 2.5s ease-in-out infinite;
     }
     header p {
       flex: 2;
@@ -59,10 +77,14 @@
     a {
       color: #0ff;
       text-decoration: none;
-      transition: color 0.3s;
+      transition: color 0.3s, text-shadow 0.3s;
     }
     a:hover {
       color: lime;
+      text-shadow:
+        0 0 5px lime,
+        0 0 10px lime,
+        0 0 20px lime;
     }
     .download-button {
       display: inline-block;
@@ -74,6 +96,7 @@
       font-weight: bold;
       box-shadow: 0 0 15px #0ff;
       transition: background 0.3s ease, box-shadow 0.3s;
+      animation: neonGlow 2.5s ease-in-out infinite;
     }
     .download-button:hover {
       background-color: lime;
@@ -109,18 +132,38 @@
   <section id="tools">
     <h2>Available Tools</h2>
     <p>Download the latest Mini AV executable below:</p>
-    <a class="download-button" href="https://github.com/Wolfinferno/wolfinferno/raw/main/Mini_Av_Full.exe" download>Download Mini AV (Beta)</a>
-    <p style="margin-top:10px; font-size: 0.9em; color: #ccc;">Note: If your browser warns about the file, please allow it as this is a trusted file built by Wolf Inferno.</p>
+    <a
+      class="download-button"
+      href="https://github.com/Wolfinferno/wolfinferno/raw/main/Mini_Av_Full.exe"
+      download
+      >Download Mini AV (Beta)</a
+    >
+    <p style="margin-top: 10px; font-size: 0.9em; color: #ccc;">
+      Note: If your browser warns about the file, please allow it as this is a
+      trusted file built by Wolf Inferno.
+    </p>
   </section>
 
   <section id="about">
     <h2>About Us</h2>
-    <p>Wolf Inferno is a dedicated initiative focused on creating lightweight, transparent, and effective cybersecurity tools. Founded by <a href="https://www.linkedin.com/in/ahujakunal/" target="_blank">Kunal Ahuja</a>, the project emphasizes open-source principles, allowing anyone to inspect, improve, and trust the tools we develop. Our mission is to make robust digital protection accessible to individuals and small organizations worldwide.</p>
+    <p>
+      Wolf Inferno is a dedicated initiative focused on creating lightweight,
+      transparent, and effective cybersecurity tools. Founded by
+      <a href="https://www.linkedin.com/in/ahujakunal" target="_blank"
+        >Kunal Ahuja</a
+      >, the project emphasizes open-source principles, allowing anyone to
+      inspect, improve, and trust the tools we develop. Our mission is to make
+      robust digital protection accessible to individuals and small
+      organizations worldwide.
+    </p>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:ahuja.kunal@outlook.com">ahuja.kunal@outlook.com</a></p>
+    <p>
+      Email:
+      <a href="mailto:ahuja.kunal@outlook.com">ahuja.kunal@outlook.com</a>
+    </p>
   </section>
 
   <footer>
