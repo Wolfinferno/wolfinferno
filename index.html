@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wolf Inferno - Cyber Defense Tools</title>
+  <link rel="icon" href="assets/images/logo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -16,6 +17,7 @@
       position: relative;
       min-height: 100vh;
     }
+
     .background {
       position: fixed;
       top: 0;
@@ -25,6 +27,7 @@
       background: url('background.jpeg') no-repeat center center/cover;
       z-index: 0;
     }
+
     .circuit-overlay {
       position: fixed;
       top: 0;
@@ -42,6 +45,7 @@
       pointer-events: none;
       z-index: 1;
     }
+
     @keyframes pulse {
       0% {
         opacity: 0.2;
@@ -52,41 +56,43 @@
         filter: drop-shadow(0 0 15px cyan);
       }
     }
+
     nav {
       position: relative;
       z-index: 10;
-      margin: 20px auto 0;
-      max-width: 900px;
       text-align: center;
+      margin: 5px 0 15px 0; /* closer to header */
     }
+
     .nav-tabs {
       list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
+      display: inline-flex;
+      gap: 12px;            /* smaller gap */
       padding: 0;
       margin: 0;
+      font-weight: 600;
+      font-size: 0.85rem;   /* smaller font */
     }
+
     .nav-tabs li a {
       color: #0ff;
-      padding: 8px 15px;
+      padding: 6px 14px;    /* smaller padding */
       border: 2px solid #0ff;
       border-radius: 8px;
       text-decoration: none;
-      box-shadow: 0 0 10px #0ff;
+      box-shadow: 0 0 8px #0ff;  /* smaller glow */
       transition: all 0.3s ease;
       display: inline-block;
-      font-size: 14px;
-      min-width: 80px;
-      text-align: center;
-      background-color: rgba(0, 255, 255, 0.15);
-      backdrop-filter: blur(6px);
     }
-    .nav-tabs li a:hover {
+
+    .nav-tabs li a:hover,
+    .nav-tabs li a:focus {
       background: #0ff;
       color: #121212;
-      box-shadow: 0 0 20px #f00;
+      box-shadow: 0 0 16px #f00;
+      outline: none;
     }
+
     header {
       position: relative;
       z-index: 10;
@@ -99,10 +105,12 @@
       box-shadow: 0 0 20px #0ff;
       border-radius: 0 0 15px 15px;
     }
+
     #logo {
       width: 100px;
       border-radius: 12px;
     }
+
     header h1 {
       flex: 1;
       text-align: left;
@@ -111,6 +119,7 @@
       color: #0ff;
       text-shadow: 0 0 10px #0ff;
     }
+
     header p {
       flex: 2;
       text-align: right;
@@ -118,36 +127,34 @@
       color: lime;
       text-shadow: 0 0 8px lime;
     }
+
     section {
-      background: rgba(15, 15, 15, 0.6);
-      border: 1.5px solid rgba(0, 255, 255, 0.4);
-      box-shadow:
-        0 0 10px rgba(0, 255, 255, 0.3),
-        0 0 20px rgba(255, 0, 0, 0.2);
-      padding: 18px 20px;
-      margin: 25px auto;
-      max-width: 600px;
-      border-radius: 10px;
-      backdrop-filter: blur(12px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: rgba(18, 18, 18, 0.85);
+      border: 2px solid #0ff;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #0ff;
+      padding: 15px 20px;        /* reduced padding */
+      margin: 15px auto;         /* reduced margin */
+      max-width: 700px;          /* reduced max width */
+      transition: transform 0.3s, box-shadow 0.3s;
       position: relative;
       z-index: 10;
-      color: #aaffff;
-      font-size: 0.95rem;
     }
+
     section:hover {
-      transform: scale(1.05);
-      box-shadow:
-        0 0 25px #00ffff,
-        0 0 35px #ff2222;
+      transform: scale(1.02);
+      box-shadow: 0 0 30px lime;
     }
+
     h2 {
       color: #0ff;
       border-bottom: 2px solid #f00;
       display: inline-block;
-      padding-bottom: 5px;
+      padding-bottom: 4px;  /* smaller padding */
+      margin-bottom: 15px;  /* spacing below heading */
       box-shadow: 0 0 10px #0ff;
     }
+
     a {
       color: #0ff;
       text-decoration: none;
@@ -155,10 +162,12 @@
       position: relative;
       z-index: 10;
     }
+
     a:hover {
       color: lime;
       text-shadow: 0 0 5px lime, 0 0 10px lime, 0 0 20px lime;
     }
+
     .download-button {
       background: linear-gradient(45deg, #0ff, #00f);
       color: #121212;
@@ -170,11 +179,13 @@
       cursor: pointer;
       transition: all 0.3s ease-in-out;
     }
+
     .download-button:hover {
       background: linear-gradient(45deg, #f00, #900);
       color: #fff;
       box-shadow: 0 0 30px #f00;
     }
+
     footer {
       background: rgba(0, 0, 0, 0.8);
       border-top: 2px solid #f00;
@@ -195,7 +206,7 @@
 
   <nav>
     <ul class="nav-tabs">
-      <li><a href="#features">Features</a></li>
+      <li><a href="#features" class="active">Features</a></li>
       <li><a href="#tools">Tools</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -222,7 +233,9 @@
     <h2>Available Tools</h2>
     <p>Download the latest Mini AV executable below:</p>
     <a class="download-button" href="https://github.com/Wolfinferno/wolfinferno/raw/main/Mini_Av_Full.exe" download>Download Mini AV (Beta)</a>
-    <p style="margin-top: 10px; font-size: 0.9em; color: #ccc;">Note: If your browser warns about the file, please allow it as this is a trusted file built by Wolf Inferno.</p>
+    <p style="margin-top: 10px; font-size: 0.9em; color: #ccc;">
+      Note: If your browser warns about the file, please allow it as this is a trusted file built by Wolf Inferno.
+    </p>
   </section>
 
   <section id="about">
@@ -238,9 +251,7 @@
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <p>
-      Email: <a href="mailto:ahuja.kunal@outlook.com">ahuja.kunal@outlook.com</a>
-    </p>
+    <p>Email: <a href="mailto:ahuja.kunal@outlook.com">ahuja.kunal@outlook.com</a></p>
   </section>
 
   <footer>
