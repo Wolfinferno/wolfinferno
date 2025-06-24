@@ -7,14 +7,33 @@
   <link rel="icon" href="assets/images/logo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
   <style>
+    /* Basic styling */
     body {
       background-color: #121212;
       color: #f5f5f5;
       font-family: 'Orbitron', sans-serif;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
     }
+
+    /* Particle background canvas */
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      background: transparent;
+    }
+
     header {
+      position: relative;
+      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -22,10 +41,119 @@
       background: linear-gradient(45deg, red, black, red);
       box-shadow: 0 0 20px red;
     }
+
     #logo {
       width: 100px;
       border-radius: 12px;
+      transform: translateY(-50px) scale(0.5);
+      opacity: 0;
+      animation: logoDropIn 1s ease forwards;
+      animation-delay: 0.3s;
     }
+
+    @keyframes logoDropIn {
+      to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        filter: drop-shadow(0 0 8px #ff0000);
+      }
+    }
+
+    /* Glitch animation for header */
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 0 red, -2px 0 cyan;
+      }
+      20% {
+        text-shadow: -2px 0 red, 2px 0 cyan;
+      }
+      40% {
+        text-shadow: 2px 0 cyan, -2px 0 red;
+      }
+      60% {
+        text-shadow: -2px 0 cyan, 2px 0 red;
+      }
+      80% {
+        text-shadow: 2px 0 red, -2px 0 cyan;
+      }
+      100% {
+        text-shadow: -2px 0 red, 2px 0 cyan;
+      }
+    }
+
+    header h1 {
+      flex: 1;
+      text-align: left;
+      margin-left: 20px;
+      font-size: 28px;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff;
+      animation: glitch 1.5s infinite;
+    }
+
+    header p {
+      flex: 2;
+      text-align: right;
+      font-size: 16px;
+      color: lime;
+      text-shadow: 0 0 8px lime;
+    }
+
+    section {
+      position: relative;
+      z-index: 10;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      border: 1px solid red;
+      border-radius: 10px;
+      background-color: #1e1e1e;
+      text-align: center;
+      box-shadow: 0 0 15px red;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    section:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px lime;
+    }
+
+    a {
+      color: #0ff;
+      text-decoration: none;
+      transition: color 0.3s, text-shadow 0.3s;
+      position: relative;
+      z-index: 10;
+    }
+
+    a:hover {
+      color: lime;
+      text-shadow:
+        0 0 5px lime,
+        0 0 10px lime,
+        0 0 20px lime;
+    }
+
+    .download-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 25px;
+      background-color: #0ff;
+      color: #121212;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 0 15px #0ff;
+      transition: background 0.3s ease, box-shadow 0.3s;
+      animation: neonGlow 2.5s ease-in-out infinite;
+      position: relative;
+      z-index: 10;
+    }
+
+    .download-button:hover {
+      background-color: lime;
+      box-shadow: 0 0 25px lime;
+    }
+
     @keyframes neonGlow {
       0%,
       100% {
@@ -43,66 +171,10 @@
           0 0 50px #00fff7;
       }
     }
-    header h1 {
-      flex: 1;
-      text-align: left;
-      margin-left: 20px;
-      font-size: 28px;
-      color: #0ff;
-      text-shadow: 0 0 10px #0ff;
-      animation: neonGlow 2.5s ease-in-out infinite;
-    }
-    header p {
-      flex: 2;
-      text-align: right;
-      font-size: 16px;
-      color: lime;
-      text-shadow: 0 0 8px lime;
-    }
-    section {
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 800px;
-      border: 1px solid red;
-      border-radius: 10px;
-      background-color: #1e1e1e;
-      text-align: center;
-      box-shadow: 0 0 15px red;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    section:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 25px lime;
-    }
-    a {
-      color: #0ff;
-      text-decoration: none;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
-    a:hover {
-      color: lime;
-      text-shadow:
-        0 0 5px lime,
-        0 0 10px lime,
-        0 0 20px lime;
-    }
-    .download-button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 25px;
-      background-color: #0ff;
-      color: #121212;
-      border-radius: 8px;
-      font-weight: bold;
-      box-shadow: 0 0 15px #0ff;
-      transition: background 0.3s ease, box-shadow 0.3s;
-      animation: neonGlow 2.5s ease-in-out infinite;
-    }
-    .download-button:hover {
-      background-color: lime;
-      box-shadow: 0 0 25px lime;
-    }
+
     footer {
+      position: relative;
+      z-index: 10;
       padding: 10px;
       font-size: 0.8em;
       color: #888;
@@ -113,6 +185,9 @@
   </style>
 </head>
 <body>
+  <!-- Particle background canvas -->
+  <canvas id="particle-canvas"></canvas>
+
   <header>
     <img src="/logo.png" alt="Wolf Inferno Logo" id="logo" />
     <h1>Wolf Inferno Cyber Defense</h1>
@@ -169,5 +244,52 @@
   <footer>
     <p>&copy; 2025 Wolf Inferno. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // Particle animation
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height, particles;
+
+    function init() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+
+      particles = [];
+      for (let i = 0; i < 80; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 2 + 1,
+          speedY: Math.random() * 0.5 + 0.2,
+          opacity: Math.random() * 0.5 + 0.3,
+        });
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        p.y -= p.speedY;
+        if (p.y < 0) p.y = height;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0,255,0,${p.opacity})`; // neon green dots
+        ctx.shadowColor = 'rgba(0,255,0,0.7)';
+        ctx.shadowBlur = 6;
+        ctx.fill();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+      init();
+    });
+
+    init();
+    animate();
+  </script>
 </body>
 </html>
