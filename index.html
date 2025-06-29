@@ -60,6 +60,7 @@
       }
     }
 
+    /* Moved nav styles below header */
     nav {
       position: relative;
       z-index: 10;
@@ -109,12 +110,14 @@
       border-bottom: 2px solid #0ff;
       box-shadow: 0 0 20px #0ff;
       border-radius: 0 0 15px 15px;
-      margin-bottom: 60px; /* Added margin bottom for spacing below header */
+      margin-bottom: 0; /* Removed margin-bottom so nav can come just below */
+      flex-wrap: wrap; /* allow wrap to stack nav below header content */
     }
 
     #logo {
       width: 100px;
       border-radius: 12px;
+      flex-shrink: 0;
     }
 
     header h1 {
@@ -124,6 +127,7 @@
       font-size: 28px;
       color: #0ff;
       text-shadow: 0 0 10px #0ff;
+      min-width: 220px;
     }
 
     header p {
@@ -132,6 +136,14 @@
       font-size: 16px;
       color: lime;
       text-shadow: 0 0 8px lime;
+      min-width: 220px;
+    }
+
+    /* Place nav inside header at bottom */
+    header nav {
+      width: 100%;
+      margin-top: 15px;
+      text-align: center;
     }
 
     /* Container for tab content panels placed near bottom */
@@ -257,19 +269,20 @@
   <div class="background"></div>
   <div class="circuit-overlay"></div>
 
-  <nav>
-    <ul class="nav-tabs">
-      <li><a href="#features" class="active" data-index="0">Features</a></li>
-      <li><a href="#tools" data-index="1">Tools</a></li>
-      <li><a href="#about" data-index="2">About Us</a></li>
-      <li><a href="#contact" data-index="3">Contact Us</a></li>
-    </ul>
-  </nav>
-
   <header>
     <img src="/logo.png" alt="Wolf Inferno Logo" id="logo" />
     <h1>Wolf Inferno Cyber Defense</h1>
     <p>Lightweight Security Solutions for Modern Threats</p>
+
+    <!-- Moved nav inside header below other content -->
+    <nav>
+      <ul class="nav-tabs">
+        <li><a href="#features" class="active" data-index="0">Features</a></li>
+        <li><a href="#tools" data-index="1">Tools</a></li>
+        <li><a href="#about" data-index="2">About Us</a></li>
+        <li><a href="#contact" data-index="3">Contact Us</a></li>
+      </ul>
+    </nav>
   </header>
 
   <div class="tab-content-wrapper" aria-live="polite">
@@ -286,12 +299,12 @@
 
       <div class="tab-panel" id="tools">
         <h2>Tools</h2>
-        <p>Download the latest Mini AV executable below:</p>
+        <p>Download the latest Wolf Inferno Antivirus executable below:</p>
         <a
           class="download-button"
-          href="https://github.com/Wolfinferno/wolfinferno/raw/main/Mini_Av_Full.exe"
+          href="https://github.com/Wolfinferno/wolfinferno/raw/main/wolfinferno_antivirus.exe"
           download
-          >Download Mini AV (Beta)</a
+          >Download Wolf Inferno Antivirus</a
         >
         <p style="margin-top: 10px; font-size: 0.9em; color: #ccc;">
           Note: If your browser warns about the file, please allow it as this is a trusted file built by Wolf Inferno.
