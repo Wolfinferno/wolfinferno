@@ -5,166 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wolf Inferno - Cyber Defense Tools</title>
   <link rel="icon" href="assets/images/logo.png" />
-  <!-- Changed font to Roboto -->
+  <!-- Roboto font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --primary-color: #C8102E; /* Fortinet red */
+      --secondary-color: #1E1E1E; /* Dark gray */
+      --light-gray: #F5F5F5;
+      --text-color: #333333;
+      --bg-color: #ffffff;
+    }
+
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
     body {
-      background-color: #121212;
-      color: #f5f5f5;
-      font-family: 'Roboto', sans-serif; /* Changed font here */
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
-      position: relative;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
 
+    /* Background image container */
     .background {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100vw;
       height: 100vh;
       background: url('background.jpeg') no-repeat center center/cover;
+      opacity: 0.05; /* subtle */
       z-index: 0;
-    }
-
-    .circuit-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(0, 255, 255, 0.1),
-        rgba(0, 255, 255, 0.1) 2px,
-        transparent 2px,
-        transparent 6px
-      );
-      animation: pulse 3s infinite alternate;
       pointer-events: none;
-      z-index: 1;
     }
 
-    @keyframes pulse {
-      0% {
-        opacity: 0.2;
-        filter: drop-shadow(0 0 5px cyan);
-      }
-      100% {
-        opacity: 0.5;
-        filter: drop-shadow(0 0 15px cyan);
-      }
-    }
-
-    nav {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      margin: 10px 0 20px 0;
-    }
-
-    .nav-tabs {
-      list-style: none;
-      display: inline-flex;
-      gap: 18px; /* increased gap */
-      padding: 0;
-      margin: 0;
-      font-weight: 600;
-      font-size: 1.1rem; /* increased font size */
-    }
-
-    .nav-tabs li a {
-      color: #0ff;
-      padding: 10px 24px; /* increased padding */
-      border: 2px solid #0ff;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 0 8px #0ff;
-      transition: all 0.3s ease;
-      display: inline-block;
-      cursor: pointer;
-    }
-
-    .nav-tabs li a.active,
-    .nav-tabs li a:hover,
-    .nav-tabs li a:focus {
-      background: #0ff;
-      color: #121212;
-      box-shadow: 0 0 16px #f00;
-      outline: none;
-    }
-
+    /* Header */
     header {
-      position: relative;
-      z-index: 10;
+      background-color: var(--bg-color);
+      border-bottom: 3px solid var(--primary-color);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 40px;
-      background: rgba(0, 0, 0, 0.7);
-      border-bottom: 2px solid #0ff;
-      box-shadow: 0 0 20px #0ff;
-      border-radius: 0 0 15px 15px;
-      margin-bottom: 0; /* Removed margin-bottom so nav can come just below */
-      flex-wrap: wrap; /* allow wrap to stack nav below header content */
+      padding: 20px 40px;
+      position: relative;
+      z-index: 10;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     #logo {
-      width: 100px;
-      border-radius: 12px;
+      width: 110px;
+      height: auto;
       flex-shrink: 0;
     }
 
     header h1 {
-      flex: 1;
-      text-align: left;
-      margin-left: 20px;
+      color: var(--primary-color);
+      font-weight: 700;
       font-size: 28px;
-      color: #0ff;
-      text-shadow: 0 0 10px #0ff;
-      min-width: 220px;
+      margin: 0 20px;
+      flex: 1 1 auto;
+      min-width: 200px;
     }
 
     header p {
-      flex: 2;
-      text-align: right;
+      color: var(--secondary-color);
+      font-weight: 500;
       font-size: 16px;
-      color: lime;
-      text-shadow: 0 0 8px lime;
-      min-width: 220px;
+      margin: 0;
+      flex: 1 1 auto;
+      text-align: right;
+      min-width: 200px;
     }
 
-    /* Place nav inside header at bottom */
-    header nav {
+    /* Navigation */
+    nav {
       width: 100%;
       margin-top: 15px;
       text-align: center;
     }
-
-    /* Container for tab content panels placed near bottom */
-    .tab-content-wrapper {
-      position: relative;
-      max-width: 700px;
-      margin: 0 auto 40px auto;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 0 25px #0ff;
-      background-color: rgba(18, 18, 18, 0.85);
-      border: 2px solid #0ff;
-      min-height: 220px;
-      z-index: 10;
-
-      /* Push the container near the bottom of viewport */
-      margin-top: auto;
-      margin-bottom: 60px;
+    .nav-tabs {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      display: inline-flex;
+      gap: 24px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .nav-tabs li a {
+      color: var(--secondary-color);
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .nav-tabs li a.active,
+    .nav-tabs li a:hover,
+    .nav-tabs li a:focus {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+      background-color: #f9e6e6;
+      outline: none;
     }
 
-    /* Flex container to hold all tab panels horizontally */
+    /* Main content container */
+    .tab-content-wrapper {
+      max-width: 900px;
+      margin: 40px auto 80px auto;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    /* Tab panels container */
     .tab-content {
       display: flex;
       transition: transform 0.4s ease;
@@ -173,108 +139,142 @@
 
     /* Each tab panel */
     .tab-panel {
-      flex: 0 0 25%; /* 1/4th of container width */
-      padding: 20px 25px;
+      flex: 0 0 25%;
+      padding: 30px 40px;
       box-sizing: border-box;
-      color: #f5f5f5;
+      color: var(--text-color);
+      min-height: 280px;
     }
 
     .tab-panel h2 {
-      color: #0ff;
-      border-bottom: 2px solid #f00;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-      box-shadow: 0 0 10px #0ff;
+      color: var(--primary-color);
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 26px;
     }
 
     .tab-panel ul {
       padding-left: 20px;
+      list-style-type: disc;
+      color: var(--secondary-color);
+      font-weight: 500;
+      line-height: 1.5;
     }
 
     .tab-panel li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
+    .tab-panel p {
+      color: var(--secondary-color);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* Download button */
     .download-button {
-      background: linear-gradient(45deg, #0ff, #00f);
-      color: #121212;
+      background-color: var(--primary-color);
+      color: #fff;
       border: none;
-      padding: 15px 30px;
-      font-weight: bold;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #0ff;
+      padding: 14px 32px;
+      font-weight: 600;
+      border-radius: 8px;
       cursor: pointer;
-      transition: all 0.3s ease-in-out;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 16px;
     }
 
-    .download-button:hover {
-      background: linear-gradient(45deg, #f00, #900);
-      color: #fff;
-      box-shadow: 0 0 30px #f00;
+    .download-button:hover,
+    .download-button:focus {
+      background-color: #a50e24;
+      outline: none;
     }
 
     a {
-      color: #0ff;
+      color: var(--primary-color);
       text-decoration: none;
-      transition: color 0.3s, text-shadow 0.3s;
-      position: relative;
-      z-index: 10;
+      font-weight: 600;
     }
 
-    a:hover {
-      color: lime;
-      text-shadow: 0 0 5px lime, 0 0 10px lime, 0 0 20px lime;
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+      outline: none;
     }
 
+    /* Footer */
     footer {
-      background: rgba(0, 0, 0, 0.8);
-      border-top: 2px solid #f00;
-      color: #888;
-      box-shadow: 0 -2px 15px #f00;
-      border-radius: 15px 15px 0 0;
+      background-color: var(--secondary-color);
+      color: #eee;
       text-align: center;
-      padding: 10px;
-      font-size: 0.8em;
+      padding: 15px 0;
+      font-size: 0.9em;
+      font-weight: 400;
       position: relative;
       z-index: 10;
+      user-select: none;
     }
 
-    /* Responsive smaller font on very small screens */
-    @media (max-width: 500px) {
-      header h1 {
-        font-size: 22px;
-      }
-      header p {
-        font-size: 14px;
-      }
-      .nav-tabs {
-        font-size: 0.85rem;
-        gap: 10px;
-      }
-      .nav-tabs li a {
-        padding: 7px 14px;
-      }
+    /* Backup Group Section */
+    .backup-group {
+      max-width: 900px;
+      margin: 20px auto 40px auto;
+      padding: 20px;
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .backup-group img {
+      max-width: 150px;
+      height: auto;
+      border-radius: 12px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 12px rgba(200, 0, 0, 0.25);
+    }
+    .backup-group .description {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      font-weight: 500;
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 850px) {
       .tab-content-wrapper {
         max-width: 95%;
       }
       .tab-panel {
-        padding: 15px 10px;
+        padding: 20px 15px;
+        min-height: 260px;
+      }
+      .backup-group {
+        flex-direction: column;
+        text-align: center;
+      }
+      .backup-group img {
+        margin-bottom: 15px;
+        max-width: 100%;
       }
     }
   </style>
 </head>
 <body>
   <div class="background"></div>
-  <div class="circuit-overlay"></div>
 
   <header>
     <img src="/logo.png" alt="Wolf Inferno Logo" id="logo" />
     <h1>Wolf Inferno Cyber Defense</h1>
     <p>Lightweight Security Solutions for Modern Threats</p>
 
-    <!-- Nav tabs moved inside header below logo and titles -->
     <nav>
       <ul class="nav-tabs">
         <li><a href="#features" class="active" data-index="0">Features</a></li>
@@ -285,9 +285,18 @@
     </nav>
   </header>
 
-  <div class="tab-content-wrapper" aria-live="polite">
+  <!-- Backup group image and text -->
+  <section class="backup-group" aria-label="Backup group">
+    <img src="assets/images/backup-group.jpg" alt="Backup Group Team" />
+    <div class="description">
+      <h3>Our Dedicated Backup Group</h3>
+      <p>Our backup group is committed to ensuring your data is always safe and recoverable, using cutting-edge technology and best practices tailored for modern cybersecurity challenges.</p>
+    </div>
+  </section>
+
+  <main class="tab-content-wrapper" aria-live="polite">
     <div class="tab-content" id="tabContent">
-      <div class="tab-panel" id="features">
+      <section class="tab-panel" id="features" tabindex="0">
         <h2>Our Features</h2>
         <ul>
           <li>✔️ Real-Time File Integrity Monitor</li>
@@ -295,9 +304,9 @@
           <li>✔️ Network Breach Detection (Basic)</li>
           <li>✔️ Open-source & Transparent</li>
         </ul>
-      </div>
+      </section>
 
-      <div class="tab-panel" id="tools">
+      <section class="tab-panel" id="tools" tabindex="0">
         <h2>Tools</h2>
         <p>Download the latest Wolf Inferno Antivirus ZIP file below:</p>
         <a
@@ -306,31 +315,31 @@
           download
           >Download Wolf Inferno Antivirus (ZIP)</a
         >
-        <p style="margin-top: 10px; font-size: 0.9em; color: #ccc;">
+        <p style="margin-top: 10px; font-size: 0.9em; color: var(--secondary-color);">
           Note: If your browser warns about the file, please allow it as this is a trusted file built by Wolf Inferno.
         </p>
-      </div>
+      </section>
 
-      <div class="tab-panel" id="about">
+      <section class="tab-panel" id="about" tabindex="0">
         <h2>About Us</h2>
         <p>
           Wolf Inferno is a dedicated initiative focused on creating lightweight,
           transparent, and effective cybersecurity tools. Founded by
-          <a href="https://www.linkedin.com/in/ahujakunal" target="_blank"
+          <a href="https://www.linkedin.com/in/ahujakunal" target="_blank" rel="noopener noreferrer"
             >Kunal Ahuja</a
           >, the project emphasizes open-source principles, allowing anyone to inspect,
           improve, and trust the tools we develop. Our mission is to make robust digital protection accessible to individuals and small organizations worldwide.
         </p>
-      </div>
+      </section>
 
-      <div class="tab-panel" id="contact">
+      <section class="tab-panel" id="contact" tabindex="0">
         <h2>Contact Us</h2>
         <p>
           Email: <a href="mailto:ahuja.kunal@outlook.com">ahuja.kunal@outlook.com</a>
         </p>
-      </div>
+      </section>
     </div>
-  </div>
+  </main>
 
   <footer>
     <p>&copy; 2025 Wolf Inferno. All Rights Reserved.</p>
@@ -358,3 +367,4 @@
   </script>
 </body>
 </html>
+
