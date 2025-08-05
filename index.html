@@ -67,19 +67,21 @@
       color: var(--primary-color);
       font-weight: 700;
       font-size: 28px;
-      margin: 0 20px;
+      margin: 0 20px 8px 20px;
       flex: 1 1 auto;
       min-width: 200px;
+      text-shadow: 0 1px 2px rgba(200,0,0,0.4);
     }
 
     header p {
       color: var(--secondary-color);
       font-weight: 500;
-      font-size: 16px;
-      margin: 0;
+      font-size: 18px;
+      margin: 0 20px 8px 0;
       flex: 1 1 auto;
       text-align: right;
       min-width: 200px;
+      font-style: italic;
     }
 
     /* Navigation */
@@ -165,6 +167,18 @@
 
     .tab-panel li {
       margin-bottom: 10px;
+      position: relative;
+      padding-left: 24px;
+    }
+    /* Simple icons using pseudo-elements for feature bullets */
+    .tab-panel li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 16px;
+      line-height: 1;
+      color: var(--primary-color);
     }
 
     .tab-panel p {
@@ -182,16 +196,18 @@
       font-weight: 600;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
       text-decoration: none;
       display: inline-block;
       margin-top: 16px;
+      box-shadow: 0 4px 8px rgba(200, 0, 0, 0.3);
     }
 
     .download-button:hover,
     .download-button:focus {
       background-color: #a50e24;
       outline: none;
+      box-shadow: 0 6px 14px rgba(200, 0, 0, 0.6);
     }
 
     a {
@@ -219,32 +235,21 @@
       user-select: none;
     }
 
-    /* Backup Group Section */
-    .backup-group {
-      max-width: 900px;
-      margin: 20px auto 40px auto;
-      padding: 20px;
-      background-color: #fafafa;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    footer .legal-links {
+      margin-top: 8px;
+      font-size: 0.8em;
+      color: #bbb;
     }
-    .backup-group img {
-      max-width: 150px;
-      height: auto;
-      border-radius: 12px;
-      flex-shrink: 0;
-      box-shadow: 0 2px 12px rgba(200, 0, 0, 0.25);
+
+    footer .legal-links a {
+      color: #bbb;
+      margin: 0 8px;
+      text-decoration: none;
     }
-    .backup-group .description {
-      font-size: 1rem;
-      color: var(--secondary-color);
-      font-weight: 500;
-      line-height: 1.4;
-      flex: 1;
+    footer .legal-links a:hover,
+    footer .legal-links a:focus {
+      text-decoration: underline;
+      outline: none;
     }
 
     /* Responsive */
@@ -256,14 +261,6 @@
         padding: 20px 15px;
         min-height: 260px;
       }
-      .backup-group {
-        flex-direction: column;
-        text-align: center;
-      }
-      .backup-group img {
-        margin-bottom: 15px;
-        max-width: 100%;
-      }
     }
   </style>
 </head>
@@ -273,7 +270,7 @@
   <header>
     <img src="/logo.png" alt="Wolf Inferno Logo" id="logo" />
     <h1>Wolf Inferno Cyber Defense</h1>
-    <p>Lightweight Security Solutions for Modern Threats</p>
+    <p>Advanced Cyber Defense Solutions Built for Speed, Transparency, and Reliability</p>
 
     <nav>
       <ul class="nav-tabs">
@@ -285,24 +282,15 @@
     </nav>
   </header>
 
-  <!-- Backup group image and text -->
-  <section class="backup-group" aria-label="Backup group">
-    <img src="assets/images/backup-group.jpg" alt="Backup Group Team" />
-    <div class="description">
-      <h3>Our Dedicated Backup Group</h3>
-      <p>Our backup group is committed to ensuring your data is always safe and recoverable, using cutting-edge technology and best practices tailored for modern cybersecurity challenges.</p>
-    </div>
-  </section>
-
   <main class="tab-content-wrapper" aria-live="polite">
     <div class="tab-content" id="tabContent">
       <section class="tab-panel" id="features" tabindex="0">
         <h2>Our Features</h2>
         <ul>
-          <li>✔️ Real-Time File Integrity Monitor</li>
-          <li>✔️ Lightweight Process Behavior Scanner</li>
-          <li>✔️ Network Breach Detection (Basic)</li>
-          <li>✔️ Open-source & Transparent</li>
+          <li><strong>Real-Time File Integrity Monitoring:</strong> Detect unauthorized file changes instantly to prevent data tampering.</li>
+          <li><strong>Lightweight Process Behavior Scanner:</strong> Monitor running processes for suspicious activity without impacting system performance.</li>
+          <li><strong>Network Breach Detection (Basic):</strong> Identify common network intrusion attempts to alert you before damage occurs.</li>
+          <li><strong>Open-Source & Transparent:</strong> Our code is publicly available for inspection, ensuring trust and continuous improvement.</li>
         </ul>
       </section>
 
@@ -323,12 +311,15 @@
       <section class="tab-panel" id="about" tabindex="0">
         <h2>About Us</h2>
         <p>
-          Wolf Inferno is a dedicated initiative focused on creating lightweight,
-          transparent, and effective cybersecurity tools. Founded by
-          <a href="https://www.linkedin.com/in/ahujakunal" target="_blank" rel="noopener noreferrer"
-            >Kunal Ahuja</a
-          >, the project emphasizes open-source principles, allowing anyone to inspect,
-          improve, and trust the tools we develop. Our mission is to make robust digital protection accessible to individuals and small organizations worldwide.
+          Wolf Inferno is a pioneering cybersecurity initiative specializing in lightweight, transparent, and high-performance protection tools. Founded by
+          <a href="https://www.linkedin.com/in/ahujakunal" target="_blank" rel="noopener noreferrer">Kunal Ahuja</a>,
+          we champion open-source development to ensure transparency and foster community-driven innovation.
+        </p>
+        <p>
+          Our mission is to democratize access to robust digital security, empowering individuals and small organizations worldwide with tools that deliver enterprise-grade protection without compromising speed or usability.
+        </p>
+        <p>
+          Built on principles of trust, efficiency, and resilience, Wolf Inferno stands ready to safeguard your digital environment from emerging cyber threats.
         </p>
       </section>
 
@@ -343,6 +334,11 @@
 
   <footer>
     <p>&copy; 2025 Wolf Inferno. All Rights Reserved.</p>
+    <div class="legal-links">
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Security Disclosure</a>
+    </div>
   </footer>
 
   <script>
@@ -367,4 +363,3 @@
   </script>
 </body>
 </html>
-
