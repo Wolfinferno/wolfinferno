@@ -1,24 +1,110 @@
-section {
-  background: rgba(15, 15, 15, 0.6); /* more transparent */
-  border: 1.5px solid rgba(0, 255, 255, 0.4); /* softer neon border */
-  box-shadow:
-    0 0 10px rgba(0, 255, 255, 0.3),
-    0 0 20px rgba(255, 0, 0, 0.2);
-  padding: 18px 20px;
-  margin: 25px auto;
-  max-width: 600px; /* smaller width */
-  border-radius: 10px;
-  backdrop-filter: blur(12px); /* glass effect */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  z-index: 10;
-  color: #aaffff;
-  font-size: 0.95rem;
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-section:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 25px #00ffff,
-    0 0 35px #ff2222;
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #0e0e0e;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid #333;
+  padding: 20px 0;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.logo {
+  height: 60px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Main */
+main {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* Security Showcase */
+.security-showcase {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.security-showcase img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 6px;
+}
+
+.security-showcase .info {
+  flex: 1;
+}
+
+.security-showcase h2 {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.security-showcase p {
+  color: #cccccc;
+}
+
+/* Features Section */
+.features h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.features ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.features li {
+  padding: 10px 0;
+  border-bottom: 1px solid #2c2c2c;
+  color: #d0d0d0;
+}
+
+/* Footer */
+footer {
+  background-color: #101010;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+  font-size: 0.85rem;
+  color: #777;
 }
