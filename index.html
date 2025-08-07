@@ -1,68 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wolf Inferno - Lightweight Cybersecurity</title>
+  <title>Wolf Inferno - Cyber Defense Tools</title>
   <link rel="icon" href="assets/images/logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="background"></div>
+  <div class="circuit-overlay"></div>
 
-  <header>
-    <div class="container header-container">
-      <img src="assets/images/logo.png" alt="Wolf Inferno Logo" class="logo" />
-      <h1>Wolf Inferno</h1>
-      <p class="tagline">Lightweight Cyber Defense, Designed for Performance & Privacy</p>
+  <header class="header container">
+    <img src="assets/images/logo.png" alt="Wolf Inferno Logo" class="logo" />
+    <div class="header-text">
+      <h1>Wolf Inferno Cyber Defense</h1>
+      <p class="tagline">Lightweight Security Solutions for Modern Threats</p>
     </div>
+
+    <nav aria-label="Primary navigation">
+      <ul class="nav-tabs" role="tablist">
+        <li role="presentation">
+          <a href="#features" class="active" data-index="0" role="tab" aria-selected="true" tabindex="0">Features</a>
+        </li>
+        <li role="presentation">
+          <a href="#tools" data-index="1" role="tab" tabindex="-1">Tools</a>
+        </li>
+        <li role="presentation">
+          <a href="#about" data-index="2" role="tab" tabindex="-1">About Us</a>
+        </li>
+        <li role="presentation">
+          <a href="#contact" data-index="3" role="tab" tabindex="-1">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="container main-content">
-    <section class="intro">
-      <h2>Protect your digital world with minimal impact</h2>
-      <p>Wolf Inferno delivers powerful antivirus tools that are lightweight, privacy-focused, and easy to use — no cloud dependencies, no bloat.</p>
-    </section>
+  <main class="tab-content-wrapper container" aria-live="polite">
+    <div class="tab-content" id="tabContent">
+      <!-- Features -->
+      <section class="tab-panel" id="features" role="tabpanel" tabindex="0" aria-labelledby="features-tab">
+        <h2>Our Features</h2>
+        <ul class="features-list">
+          <li>✔️ Real-Time File Integrity Monitoring</li>
+          <li>✔️ Lightweight Process Behavior Scanner</li>
+          <li>✔️ Basic Network Breach Detection</li>
+          <li>✔️ Open-source & Transparent for Trust</li>
+          <li>✔️ Zero Cloud Dependencies — 100% Local Scanning</li>
+          <li>✔️ Minimal System Impact for Seamless Performance</li>
+        </ul>
+      </section>
 
-    <section class="features">
-      <h2>Features</h2>
-      <ul>
-        <li>✔️ Real-Time File Integrity Monitoring</li>
-        <li>✔️ Efficient Process Behavior Scanner</li>
-        <li>✔️ Basic Network Breach Detection</li>
-        <li>✔️ Fully Open Source & Transparent</li>
-      </ul>
-    </section>
+      <!-- Tools / Download -->
+      <section class="tab-panel" id="tools" role="tabpanel" tabindex="0" aria-labelledby="tools-tab">
+        <h2>Tools</h2>
+        <p>
+          Wolf Inferno Antivirus is designed to be fast, efficient, and reliable.
+          Download the latest stable build below and secure your system today.
+        </p>
+        <a
+          class="download-button"
+          href="https://github.com/Wolfinferno/wolfinferno/raw/main/wolfinferno_antivirus.zip"
+          download
+          aria-label="Download Wolf Inferno Antivirus ZIP file"
+          >Download Wolf Inferno Antivirus (ZIP)</a
+        >
+        <p class="note">
+          Note: If your browser warns about the file, please allow it — this is a trusted open-source build.
+        </p>
+      </section>
 
-    <section class="download-cta">
-      <a href="https://github.com/Wolfinferno/wolfinferno/raw/main/wolfinferno_antivirus.zip" class="btn-download" download>
-        Download Wolf Inferno Antivirus
-      </a>
-      <p class="note">Trusted and verified build — please allow your browser to download.</p>
-    </section>
+      <!-- About Us -->
+      <section class="tab-panel" id="about" role="tabpanel" tabindex="0" aria-labelledby="about-tab">
+        <h2>About Us</h2>
+        <p>
+          Wolf Inferno is a dedicated cybersecurity initiative focused on delivering
+          lightweight, transparent, and effective security tools.
+          Founded by
+          <a href="https://www.linkedin.com/in/ahujakunal" target="_blank" rel="noopener noreferrer">Kunal Ahuja</a>,
+          the project embraces open-source principles to empower users worldwide with
+          trusted digital protection without compromise.
+        </p>
+        <h3>Our Security Philosophy</h3>
+        <p>
+          We believe in privacy-first protection — no data leaves your device.
+          Our tools are designed to use minimal resources while providing robust
+          defense against evolving threats.
+        </p>
+        <h3>Community Driven</h3>
+        <p>
+          Transparency and collaboration are core to Wolf Inferno.
+          Anyone can audit, contribute, or suggest improvements — because true security
+          grows from an open community.
+        </p>
+      </section>
 
-    <section class="trust-indicators">
-      <div>
-        <h3>Lightweight</h3>
-        <p>Minimal CPU and memory usage for uninterrupted workflow.</p>
-      </div>
-      <div>
-        <h3>Privacy First</h3>
-        <p>Fully local scanning, no data sent to the cloud.</p>
-      </div>
-      <div>
-        <h3>Transparent</h3>
-        <p>Open-source code available for inspection and contribution.</p>
-      </div>
-    </section>
+      <!-- Contact -->
+      <section class="tab-panel" id="contact" role="tabpanel" tabindex="0" aria-labelledby="contact-tab">
+        <h2>Contact Us</h2>
+        <p>
+          For inquiries, feedback, or support, reach out via email:
+          <a href="mailto:ahuja.kunal@outlook.com">ahuja.kunal@outlook.com</a>
+        </p>
+        <h3>Follow Wolf Inferno</h3>
+        <ul class="social-links" aria-label="Social media links">
+          <li><a href="https://github.com/Wolfinferno" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/ahujakunal" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a></li>
+        </ul>
+      </section>
+    </div>
   </main>
 
-  <footer>
-    <div class="container footer-container">
+  <footer class="footer">
+    <div class="container">
       <p>&copy; 2025 Wolf Inferno. All Rights Reserved.</p>
-      <p>Contact: <a href="mailto:ahuja.kunal@outlook.com">ahuja.kunal@outlook.com</a></p>
     </div>
   </footer>
 
+  <script>
+    // Tab navigation logic with keyboard accessibility
+    const tabs = document.querySelectorAll('.nav-tabs a');
+    const tabContent = document.getElementById('tabContent');
+
+    tabs.forEach((tab, idx) => {
+      tab.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Update active tab and aria-selected
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+          t.setAttribute('tabindex', '-1');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        tab.setAttribute('tabindex', '0');
+
+        // Update tab content transform for sliding effect
+        tabContent.style.transform = `translateX(-${idx * 25}%)`;
+
+        // Focus first element in panel
+        const panel = tabContent.children[idx];
+        if (panel) panel.focus();
+      });
+
+      // Keyboard support (left/right arrows)
+      tab.addEventListener('keydown', (e) => {
+        let newIndex;
+        if (e.key === 'ArrowRight') newIndex = (idx + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft') newIndex = (idx - 1 + tabs.length) % tabs.length;
+        else return;
+
+        e.preventDefault();
+        tabs[newIndex].click();
+        tabs[newIndex].focus();
+      });
+    });
+  </script>
 </body>
 </html>
