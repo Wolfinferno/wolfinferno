@@ -1,165 +1,106 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wolf Inferno - Cyber Defense Tools</title>
-  <link rel="icon" href="assets/images/logo.png" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
+  <title>Wolf Inferno – Lightweight Cybersecurity</title>
+  <link rel="icon" href="logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="background"></div>
-  <div class="circuit-overlay"></div>
-
-  <header class="header container">
-    <img src="assets/images/logo.png" alt="Wolf Inferno Logo" class="logo" />
-    <div class="header-text">
-      <h1>Wolf Inferno Cyber Defense</h1>
-      <p class="tagline">Lightweight Security Solutions for Modern Threats</p>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <img src="logo.png" alt="Wolf Inferno Logo" class="logo" />
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#download">Download</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-
-    <nav aria-label="Primary navigation">
-      <ul class="nav-tabs" role="tablist">
-        <li role="presentation">
-          <a href="#features" class="active" data-index="0" role="tab" aria-selected="true" tabindex="0">Features</a>
-        </li>
-        <li role="presentation">
-          <a href="#tools" data-index="1" role="tab" tabindex="-1">Tools</a>
-        </li>
-        <li role="presentation">
-          <a href="#about" data-index="2" role="tab" tabindex="-1">About Us</a>
-        </li>
-        <li role="presentation">
-          <a href="#contact" data-index="3" role="tab" tabindex="-1">Contact Us</a>
-        </li>
-      </ul>
-    </nav>
   </header>
 
-  <main class="tab-content-wrapper container" aria-live="polite">
-    <div class="tab-content" id="tabContent">
-      <!-- Features -->
-      <section class="tab-panel" id="features" role="tabpanel" tabindex="0" aria-labelledby="features-tab">
-        <h2>Our Features</h2>
-        <ul class="features-list">
-          <li>✔️ Real-Time File Integrity Monitoring</li>
-          <li>✔️ Lightweight Process Behavior Scanner</li>
-          <li>✔️ Basic Network Breach Detection</li>
-          <li>✔️ Open-source & Transparent for Trust</li>
-          <li>✔️ Zero Cloud Dependencies — 100% Local Scanning</li>
-          <li>✔️ Minimal System Impact for Seamless Performance</li>
-        </ul>
-      </section>
-
-      <!-- Tools / Download -->
-      <section class="tab-panel" id="tools" role="tabpanel" tabindex="0" aria-labelledby="tools-tab">
-        <h2>Tools</h2>
-        <p>
-          Wolf Inferno Antivirus is designed to be fast, efficient, and reliable.
-          Download the latest stable build below and secure your system today.
-        </p>
-        <a
-          class="download-button"
-          href="https://github.com/Wolfinferno/wolfinferno/raw/main/wolfinferno_antivirus.zip"
-          download
-          aria-label="Download Wolf Inferno Antivirus ZIP file"
-          >Download Wolf Inferno Antivirus (ZIP)</a
-        >
-        <p class="note">
-          Note: If your browser warns about the file, please allow it — this is a trusted open-source build.
-        </p>
-      </section>
-
-      <!-- About Us -->
-      <section class="tab-panel" id="about" role="tabpanel" tabindex="0" aria-labelledby="about-tab">
-        <h2>About Us</h2>
-        <p>
-          Wolf Inferno is a dedicated cybersecurity initiative focused on delivering
-          lightweight, transparent, and effective security tools.
-          Founded by
-          <a href="https://www.linkedin.com/in/ahujakunal" target="_blank" rel="noopener noreferrer">Kunal Ahuja</a>,
-          the project embraces open-source principles to empower users worldwide with
-          trusted digital protection without compromise.
-        </p>
-        <h3>Our Security Philosophy</h3>
-        <p>
-          We believe in privacy-first protection — no data leaves your device.
-          Our tools are designed to use minimal resources while providing robust
-          defense against evolving threats.
-        </p>
-        <h3>Community Driven</h3>
-        <p>
-          Transparency and collaboration are core to Wolf Inferno.
-          Anyone can audit, contribute, or suggest improvements — because true security
-          grows from an open community.
-        </p>
-      </section>
-
-      <!-- Contact -->
-      <section class="tab-panel" id="contact" role="tabpanel" tabindex="0" aria-labelledby="contact-tab">
-        <h2>Contact Us</h2>
-        <p>
-          For inquiries, feedback, or support, reach out via email:
-          <a href="mailto:ahuja.kunal@outlook.com">ahuja.kunal@outlook.com</a>
-        </p>
-        <h3>Follow Wolf Inferno</h3>
-        <ul class="social-links" aria-label="Social media links">
-          <li><a href="https://github.com/Wolfinferno" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a></li>
-          <li><a href="https://linkedin.com/in/ahujakunal" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a></li>
-        </ul>
-      </section>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content container">
+      <h1>Wolf Inferno Cyber Defense</h1>
+      <p>Lightweight, Transparent & Private Security Tools</p>
+      <a href="#download" class="btn-primary">Download Antivirus</a>
     </div>
-  </main>
+  </section>
 
+  <!-- Features -->
+  <section id="features" class="section features">
+    <div class="container">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Real-Time Protection</h3>
+          <p>Instant detection of malicious files and suspicious activity.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Zero Cloud Dependency</h3>
+          <p>All scanning runs locally. No data leaves your system.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Minimal System Impact</h3>
+          <p>Lightweight design ensures smooth performance.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Open Source Driven</h3>
+          <p>Transparency and trust through community review.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section id="download" class="section download">
+    <div class="container">
+      <h2>Download Wolf Inferno Antivirus</h2>
+      <p>Protect your system with our lightweight security solution.</p>
+      <a class="btn-secondary" href="wolfinferno_antivirus.zip" download>Download Now</a>
+      <p class="note">Size: Lightweight build – no installation complexity.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section about">
+    <div class="container">
+      <h2>About Wolf Inferno</h2>
+      <p>
+        Wolf Inferno is a cybersecurity project dedicated to delivering transparent,
+        lightweight, and effective protection without compromising privacy or speed.
+      </p>
+      <p>
+        Founded by <a href="https://www.linkedin.com/in/ahujakunal" target="_blank">Kunal Ahuja</a>,
+        Wolf Inferno focuses on empowering users to take control of their digital security.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Email: <a href="mailto:ahuja.kunal@outlook.com">ahuja.kunal@outlook.com</a></p>
+      <div class="social">
+        <a href="https://github.com/Wolfinferno" target="_blank">GitHub</a> |
+        <a href="https://linkedin.com/in/ahujakunal" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Wolf Inferno. All Rights Reserved.</p>
+      <p>© 2025 Wolf Inferno. All rights reserved.</p>
     </div>
   </footer>
-
-  <script>
-    // Tab navigation logic with keyboard accessibility
-    const tabs = document.querySelectorAll('.nav-tabs a');
-    const tabContent = document.getElementById('tabContent');
-
-    tabs.forEach((tab, idx) => {
-      tab.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        // Update active tab and aria-selected
-        tabs.forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-          t.setAttribute('tabindex', '-1');
-        });
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-        tab.setAttribute('tabindex', '0');
-
-        // Update tab content transform for sliding effect
-        tabContent.style.transform = `translateX(-${idx * 25}%)`;
-
-        // Focus first element in panel
-        const panel = tabContent.children[idx];
-        if (panel) panel.focus();
-      });
-
-      // Keyboard support (left/right arrows)
-      tab.addEventListener('keydown', (e) => {
-        let newIndex;
-        if (e.key === 'ArrowRight') newIndex = (idx + 1) % tabs.length;
-        else if (e.key === 'ArrowLeft') newIndex = (idx - 1 + tabs.length) % tabs.length;
-        else return;
-
-        e.preventDefault();
-        tabs[newIndex].click();
-        tabs[newIndex].focus();
-      });
-    });
-  </script>
 </body>
 </html>
