@@ -30,7 +30,7 @@ body {
   padding: 20px 0;
 }
 .logo {
-  height: 58px;
+  height: 55px;
 }
 .nav-list {
   display: flex;
@@ -195,4 +195,3 @@ body {
     font-size: 2.2rem;
   }
 }
-
