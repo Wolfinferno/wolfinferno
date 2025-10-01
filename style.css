@@ -30,7 +30,10 @@ body {
   padding: 20px 0;
 }
 .logo {
-  height: 55px;
+  height: clamp(60px, 12vw, 90px); 
+  /* Minimum 60px, scales with viewport width, max 90px */
+  max-width: 100%;
+  height: auto;
 }
 .nav-list {
   display: flex;
@@ -195,3 +198,4 @@ body {
     font-size: 2.2rem;
   }
 }
+
